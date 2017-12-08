@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+
+//        测试异步和同步的代码
+        function fun1(){
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function(){
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                    document.getElementById("spantest1").innerHTML = xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET", "/ajaxServlet", true);
+            xmlhttp.send();
+        }
+        function fun2(){
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function(){
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                    document.getElementById("spantest2").innerHTML = xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET", "/ajaxServlet", false);
+            xmlhttp.send();
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="异步刷新测试" onclick="fun1()"><span id="spantest1"></span>
+<br>
+<input type="button" value="同步刷新 测试" onclick="fun2()"><span id="spantest2"></span>
+<br>
+<input type="button" value="测试" onclick="alert(11)">
+
+</body>
+</html>

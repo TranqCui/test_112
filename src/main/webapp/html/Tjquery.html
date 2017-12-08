@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+//        $(function () {
+//            alert();
+//        });
+
+        function fun1() {
+            $.get(
+                "/JqueryServlet",
+                {"name":"李四","age":"19"},
+                function(data){
+                    alert(data.name);
+                },
+                "json"
+            );
+        }
+
+        function fun2() {
+            $.post(
+                "/JqueryServlet",
+                {"name":"张三","age":"19"},
+                function(data){
+                    alert(data.name);
+                },
+                "json"
+            );
+        }
+
+        function fun3() {
+            $.ajax({
+                url:"/JqueryServlet",
+//                async:true,
+                type:"POST",
+                data:{"name":"tom","age":"19"},
+                success:function (data) {
+                    alert(data.name);
+                },
+                error:function () {
+                    alert("请求失败！");
+                },
+                dataType:"json"
+            })
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="get测试" onclick="fun1()">
+<br>
+<input type="button" value="post测试" onclick="fun2()">
+<br>
+<input type="button" value="ajax" onclick="fun3()">
+
+</body>
+</html>
