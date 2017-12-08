@@ -15,8 +15,8 @@ public class JqueryServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");
         String age = request.getParameter("age");
-        System.out.println(name+":"+age);
-//        int i = 1/0;
+//        System.out.println(name+":"+age);
+        int i = 1/0;
 //        response.getWriter().write("success!");
         response.setContentType("text/html;charset=utf-8");
         response.getWriter().write("{\"name\":\"安徽\",\"age\":\"19\"}");
